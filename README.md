@@ -32,7 +32,7 @@ python main.py [input.pdf] [output.txt] [audit.csv]
 ### Example
 
 ```bash
-python main.py Red_Herring_Prospectus.pdf redacted.txt audit.csv
+python main.py Example.pdf redacted.txt audit.csv
 ```
 
 ## Configuration

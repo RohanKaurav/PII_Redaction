@@ -1,0 +1,17 @@
+page,pii_type,original,redacted_as,detection_method
+1,COMPANY_NAME,"Draft Red Herring Prospectus
+The Promoters of this company are:
+",Lee-Cuevas,ner_titlecased
+1,PERSON_NAME,KUSHAL SUBBAYYA HEGDE,Jeffrey Lambert,ner_titlecased
+1,COMPANY_NAME,TechNova Solutions Private Limited,"Williams, Sharp and Everett",regex
+1,ADDRESS,Mumbai,South Joshua,ner
+1,PAN_NUMBER,ABCDE1234F,IYECF8751J,regex
+1,IP_ADDRESS,192.168.1.100,42.71.149.95,regex
+2,COMPANY_NAME,"Financial Information
+Payment Details",Gray Ltd,ner
+2,COMPANY_NAME,Credit Card,"Williams, Crosby and Smith",ner
+2,PHONE_NUMBER,1234-5678-9012,3877614559,regex
+2,PERSON_NAME,Valid Luhn,John Wallace,ner
+2,COMPANY_NAME,Credit Card,"Williams, Crosby and Smith",ner
+2,PHONE_NUMBER,4532 1522 9311,9709244558,regex
+2,PHONE_NUMBER,+91 22 4009 4400,662.556.5674x9148,regex

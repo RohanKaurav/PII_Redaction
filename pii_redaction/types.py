@@ -11,7 +11,7 @@ class PIIType(str, Enum):
     CREDIT_CARD = "CREDIT_CARD"
     DOB = "DATE_OF_BIRTH"
     IP_ADDRESS = "IP_ADDRESS"
-    PAN = "PAN_NUMBER"  # Indian tax ID - added per explicit scope decision
+    PAN = "PAN_NUMBER" 
 
 @dataclass
 class PIIMatch:

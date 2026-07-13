@@ -41,13 +41,26 @@ def _ner_pass(text: str, page: int, nlp, source_label: str, original_text: str) 
 
         if len(raw) < 2:
             continue
-        if pii_type == PIIType.ORG and normalized in ORG_ALLOWLIST:
-            continue
-        if normalized in FIELD_LABEL_ALLOWLIST:
-            continue
-        if normalized in DEFINED_TERM_STOPLIST:
-            continue
-        if pii_type == PIIType.ADDRESS and normalized in COUNTRY_LEVEL_STOPLIST:
+            
+        lines = [re.sub(r"\s+", " ", line.strip()).lower() for line in raw.split("\n")]
+        skip_entity = False
+        
+        for line_norm in lines:
+            if not line_norm: continue
+            if pii_type == PIIType.ORG and line_norm in ORG_ALLOWLIST:
+                skip_entity = True
+                break
+            if line_norm in FIELD_LABEL_ALLOWLIST:
+                skip_entity = True
+                break
+            if line_norm in DEFINED_TERM_STOPLIST:
+                skip_entity = True
+                break
+            if pii_type == PIIType.ADDRESS and line_norm in COUNTRY_LEVEL_STOPLIST:
+                skip_entity = True
+                break
+        
+        if skip_entity:
             continue
         if is_garbled(raw):
             continue

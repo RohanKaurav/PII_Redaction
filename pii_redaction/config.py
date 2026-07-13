@@ -3,12 +3,11 @@ from .types import PIIType
 NER_LABEL_MAP = {
     "PERSON": PIIType.PERSON,
     "ORG": PIIType.ORG,
-    "GPE": PIIType.ADDRESS,   # cities/states/countries -> treated as address fragments
+    "GPE": PIIType.ADDRESS,   
     "LOC": PIIType.ADDRESS,
-    "FAC": PIIType.ADDRESS,   # named facilities/buildings
+    "FAC": PIIType.ADDRESS,  
 }
 
-# Regulatory/statutory bodies & legal references: excluded from ORG redaction.
 ORG_ALLOWLIST = {
     "sebi", "rbi", "nse", "bse", "roc", "reserve bank of india",
     "securities and exchange board of india", "registrar of companies",
@@ -18,13 +17,11 @@ ORG_ALLOWLIST = {
     "maharashtra", "gujarat",
 }
 
-# Short all-caps field-label acronyms that spaCy occasionally mistags as ORG
 FIELD_LABEL_ALLOWLIST = {
     "ssn", "pan", "dob", "ip", "cin", "gst", "tan", "kyc", "ifsc",
-    "rtgs", "neft", "upi", "ocr", "ein",
+    "rtgs", "neft", "upi", "ocr", "ein", "credit card",
 }
 
-# Broad stoplist for legal/defined terms
 DEFINED_TERM_STOPLIST = {
     "offer", "bid", "bids", "bidders", "directors", "promoters", "board",
     "company", "prospectus", "registrar", "syndicate", "allotment",
@@ -48,7 +45,6 @@ DEFINED_TERM_STOPLIST = {
     "inter alia", "non-institutional portion", "cap price", "roc",
 }
 
-# Standalone country/nation-level references
 COUNTRY_LEVEL_STOPLIST = {
     "india", "us", "u.s.", "usa", "sweden",
     "the united states", "the united states of america",
